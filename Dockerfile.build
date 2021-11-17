@@ -1,0 +1,23 @@
+FROM python:3.9.7-slim
+
+# renovate: datasource=pypi depName=nox versioning=pep440
+ARG NOX_VERSION="2021.6.12"
+# renovate: datasource=pypi depName=dunamai versioning=pep440
+ARG DUNAMAI_VERSION="1.6.0"
+# renovate: datasource=pypi depName=packaging versioning=pep440
+ARG PACKAGING_VERSION="21.0"
+# renovate: datasource=pypi depName=wheel versioning=pep440
+ARG WHEEL_VERSION="0.37.0"
+# renovate: datasource=pypi depName=twine versioning=pep440
+ARG TWINE_VERSION="3.4.2"
+# renovate: datasource=pypi depName=cython versioning=pep440
+ARG CYTHON_VERSION="0.29.24"
+# renovate: datasource=pypi depName=numpy versioning=pep440
+ARG NUMPY_VERSION="1.21.2"
+# renovate: datasource=pypi depName=scipy versioning=pep440
+ARG SCIPY_VERSION="1.7.1"
+ARG PIP_DEPS="nox==${NOX_VERSION} dunamai==${DUNAMAI_VERSION} packaging==${PACKAGING_VERSION} wheel==${WHEEL_VERSION} twine==${TWINE_VERSION} cython==${CYTHON_VERSION} numpy==${NUMPY_VERSION} scipy==${SCIPY_VERSION}"
+
+# hadolint ignore=DL3008,DL3013
+RUN pip3 install --upgrade pip && \
+pip3 install --no-cache-dir --upgrade ${PIP_DEPS}
