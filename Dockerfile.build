@@ -1,4 +1,4 @@
-FROM python:3.9.7-slim
+FROM python:3.10.0-slim
 
 # renovate: datasource=pypi depName=nox versioning=pep440
 ARG NOX_VERSION="2021.6.12"
